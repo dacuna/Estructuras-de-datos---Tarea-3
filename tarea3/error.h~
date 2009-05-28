@@ -1,0 +1,8 @@
+#ifndef _ERROR_H_
+#define _ERROR_H_
+
+#define EMPTY_STACK "Pila vacia"
+
+void error(char *msg);
+
+#endif
