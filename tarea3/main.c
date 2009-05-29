@@ -1,23 +1,60 @@
-/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
-/*
- * main.c
- * Copyright (C) Diego Acuña 2009 <dacuna@inf.utfsm.cl>
- * 
- * main.c is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * main.c is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along
- * with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 #include <stdio.h>
+#include "lista.h"
+#include "pila.h"
+#include "cola.h"
+
+Lista creaCircuito(){
+	Lista nueva;
+	int i;
+	char letra;
+
+	nueva = creaLista(); 
+	for(i=0;i<20;i++){
+		letra = (char)96+i;
+		enlista(nueva,letra);
+	}
+	
+	nueva->ultimo->siguiente = nueva->primero;
+	
+	return nueva;
+}
+
+Lista creaCargas(int total){
+	Lista nueva;
+	int i;
+	char indice;
+
+	nueva = creaLista();
+	for(i=0;i<total;i++)
+		enlista(nueva,'0',i);
+
+	return nueva;
+}
+
+/* Pila *creaPilas: devuelve un array de pilas con total elementos*/
+Pila *creaPilas(int total){  
+	Pila *pilas;
+	int i;
+
+	pilas = (*Pila)malloc(sizeof(Pila)*total);
+	for(i=0;i<total;i++)
+		pilas[i] = crea_pila();
+
+	return pilas;
+}
+
+Lista creaRobots(){
+	Lista nueva;
+	int i;
+	char letra;
+
+	nueva = creaLista();
+	for(i=0;i<20;i++)
+		enlista(nueva,'0',i);
+
+	return nueva;
+}
+
 int main()
 {
 	printf("Hello world\n");
