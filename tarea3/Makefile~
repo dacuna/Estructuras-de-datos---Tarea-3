@@ -1,0 +1,24 @@
+# Makefile tarea2 estructura de datos
+CFLAGS=-Wall -pedantic -lm -I.
+
+APP = tarea3 #Nombre del programa
+
+# main
+all: $(APP)
+
+# Se construye APP
+$(APP): main.o libpila.a libcola.a liblista.a liberror.a
+	cc -o $(APP) $(CFLAGS) main.o -L. -lpila -lcola -llista -lerror
+
+# Dependencias de la librería estática. La construcción se hace con la
+# regla implicita de make.
+libpila.a: libpila.a(pila.o)
+libcola.a: libcola.a(cola.o)
+liblista.a: liblista.a(lista.o)
+liberror.a: liberror.a(error.o)
+
+# Objetivo extra para borrado de librerías y ejecutables.
+clean:
+	rm $(APP) libpila.a liboperacionesNumericas.a libnotacionPolaca.a
+
+# DO NOT DELETE

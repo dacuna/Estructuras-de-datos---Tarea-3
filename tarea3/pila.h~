@@ -1,0 +1,26 @@
+#ifndef _PILA_H_
+#define _PILA_H_
+
+typedef char tipo;
+
+typedef struct _pnodo{
+	tipo valor;
+	struct _pnodo *siguiente;
+} pnodo;
+
+typedef pnodo *pNodo;
+typedef pnodo *Pila;
+
+Pila *crea_pila();
+
+int pila_vacia(Pila p);
+
+tipo pila_top(Pila p);
+
+tipo pila_pop(Pila p);
+
+void pila_push(Pila p, tipo dato);
+
+void borra_pila(Pila p);
+	
+#endif
