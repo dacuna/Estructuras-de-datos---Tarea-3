@@ -11,7 +11,7 @@ typedef struct _pnodo{
 typedef pnodo *pNodo;
 typedef pnodo *Pila;
 
-Pila *crea_pila();
+Pila crea_pila();
 
 int pila_vacia(Pila p);
 
@@ -22,5 +22,7 @@ tipo pila_pop(Pila p);
 void pila_push(Pila p, tipo dato);
 
 void borra_pila(Pila p);
+
+void intercambia_pila(Pila in,Pila out);
 	
 #endif

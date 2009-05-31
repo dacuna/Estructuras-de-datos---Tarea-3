@@ -22,5 +22,9 @@ tipo pila_pop(Pila p);
 void pila_push(Pila p, tipo dato);
 
 void borra_pila(Pila p);
+
+void intercambia_pila(Pila in,Pila out);
+
+int cuenta_pila(Pila p);
 	
 #endif

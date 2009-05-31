@@ -21,6 +21,6 @@ int listaVacia(Lista l);
 
 void enlista(Lista l, char valor, int numero);
 
-int quitarNodo(Lista l,nodo *p);
+int quitarNodo(nodo *p);
 
 #endif

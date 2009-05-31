@@ -54,3 +54,37 @@ void borra_pila(Pila p){
 		pila_pop(p);
 	free(p);
 }
+
+void intercambia_pila(Pila in,Pila out){
+	Pila aux;
+	
+	aux = crea_pila();
+	while(!pila_vacia(in))
+		pila_push(aux,pila_pop(in));
+	
+	while(!pila_vacia(aux))
+		pila_push(out,pila_pop(aux));
+		
+	borra_pila(aux);
+
+}
+
+int cuenta_pila(Pila p){
+	Pila aux;
+	int total=0;
+	
+	aux = crea_pila();
+	while(!pila_vacia(p)){
+		pila_push(aux,pila_pop(p));
+		total++;
+	}
+	
+	while(!pila_vacia(aux))
+		pila_push(p,pila_pop(aux));
+		
+	borra_pila(aux);
+	
+	return total;
+
+}
+		
